@@ -1,0 +1,79 @@
+
+
+1) User Class
+- Represents the main user in the system.
+- Contains basic user data:
+  id, name, email, password, phone, age
+- Includes a method called displayInfo() to print user information.
+
+
+
+/*
+2) Admin Class (Inheritance)
+- Admin extends the User class.
+- This means Admin inherits all properties and methods from User.
+- Adds an additional method:
+  manageNotes()
+
+
+
+
+3) Note Class (Association)
+- Represents a note in the system.
+- Contains:
+  id, title, content
+  user: User
+- Each Note has an author (User).
+- Includes a method preview() to return a short part of the content.
+*/
+
+
+
+4) NoteBook Class (Composition)
+- Contains a collection of Note objects.
+- The relationship is Composition:
+  meaning the Notebook owns the Notes.
+  If the Notebook is deleted, its Notes are deleted as well.
+- Methods:
+  addNote()
+  removeNote()
+
+
+
+
+5) Aggregation (User & NoteBook)
+- A User can own multiple Notebooks.
+- This is an Aggregation relationship:
+  Notebooks can exist independently from the User.
+
+
+
+
+6) Association (Note & User)
+- Each Note is associated with a User (author).
+- This is a simple relationship without strong ownership.
+
+
+
+
+7) Generic Class - Storage<T>
+- A generic class that can store any type of data.
+- Methods:
+  addItem()
+  removeItem()
+  getAllItems()
+
+
+Relationships Summary:
+
+- Inheritance:
+  Admin --> User
+
+- Composition:
+  NoteBook --> Note
+
+- Aggregation:
+  User --> NoteBook
+
+- Association:
+  Note --> User
