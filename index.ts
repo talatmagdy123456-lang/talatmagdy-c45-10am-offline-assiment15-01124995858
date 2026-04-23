@@ -1,4 +1,4 @@
-// ===================== User Class =====================
+
 class User {
   public id: number;
   public name: string;
@@ -33,14 +33,13 @@ class User {
   }
 }
 
-// ===================== Admin (Inheritance) =====================
+
 class Admin extends User {
   manageNotes(): void {
     console.log("Admin is managing notes...");
   }
 }
 
-// ===================== Note Class (Association) =====================
 class Note {
   public id: number;
   public title: string;
@@ -59,7 +58,7 @@ class Note {
   }
 }
 
-// ===================== NoteBook (Composition) =====================
+
 class NoteBook {
   private notes: Note[] = [];
 
@@ -76,7 +75,6 @@ class NoteBook {
   }
 }
 
-// ===================== Aggregation =====================
 class UserWithNotebook extends User {
   notebooks: NoteBook[] = [];
 
@@ -85,7 +83,7 @@ class UserWithNotebook extends User {
   }
 }
 
-// ===================== Generic Storage =====================
+
 class Storage<T> {
   private items: T[] = [];
 
@@ -102,31 +100,30 @@ class Storage<T> {
   }
 }
 
-// ===================== Test (تشغيل الكود) =====================
 
-// Users
+
 const user1 = new User(1, "Ali", "ali@mail.com", "1234", "0100000000", 25);
 const admin1 = new Admin(2, "Admin", "admin@mail.com", "admin123", "0111111111", 30);
 
-// Notes
+
 const note1 = new Note(1, "Note 1", "This is the first note content", user1);
 const note2 = new Note(2, "Note 2", "Second note content here", user1);
 
-// Notebook
+
 const notebook = new NoteBook();
 notebook.addNote(note1);
 notebook.addNote(note2);
 
-// Aggregation
+
 const userWithNB = new UserWithNotebook(3, "Omar", "omar@mail.com", "1234", "0122222222", 28);
 userWithNB.addNotebook(notebook);
 
-// Storage Generic
+
 const storage = new Storage<string>();
 storage.addItem("Hello");
 storage.addItem("World");
 
-// Output
+
 user1.displayInfo();
 admin1.manageNotes();
 
